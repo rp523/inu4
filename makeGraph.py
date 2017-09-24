@@ -1,11 +1,26 @@
 #coding: utf-8
 import os, sys, shutil
-sys.path.append("/home/isgsktyktt/workspace/machine-learning/common")
 
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from mathtool import *
+import math
+
+# ガンマ関数。階乗の一般化（Γ(n+1) = n!）
+def Gamma(x):
+    return math.gamma(x)
+def PoissonVal(mean, k):
+    return (mean ** k) * np.exp(- mean) / Gamma(k + 1)
+def Factorial(n):
+    return math.factorial(n)
+def Combination(n, k):
+    assert(n > 0)
+    assert(n >= k)
+    return Factorial(n) / (Factorial(n - k) * Factorial(k))
+def BinomialVal(n, k, p):
+    assert(p >= 0.0)
+    assert(p <= 1.0)
+    return Combination(n, k) * (p ** k) * (1 - p) ** (n - k)
 
 def pic11_3():
     if 1:
@@ -47,16 +62,22 @@ def test():
     plt.show()
     exit()
 
-x = np.arange(1,50)
-y = np.empty(x.size)
-for i in range(x.size):
-    y[i] = PoissonVal(mean = 24, k = x[i])
-plt.plot(x,y)
-plt.show()
-exit()
 
 def pic11_5():
-    max = 20
+    max = 50
+    x = np.arange(0, max, 0.01)
+    y = np.empty(x.size)
+    for i in range(x.size):
+        y[i] = PoissonVal(mean = 24, k = x[i])
+    plt.plot(x, y)
+    plt.plot([24,24], [0, y[x==24]], color="red")
+    plt.xlim(0, max)
+    plt.ylim(0)
+    plt.xlabel("N")
+    plt.ylabel("p(N|λ)")
+    plt.title("Poisson Distribution (λ=24)")
+    plt.savefig("pic11_5_poisson.png")
+    exit()
     
     ns = np.arange(0, max)
     zs = np.arange(0, max)
