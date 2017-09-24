@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -21,17 +21,18 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
+	
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				
 				<!-- ここがスライド本体。実体は外部ファイルから読み込み -->
-				<section data-markdown="content.md"
-            	data-separator="^\n---$"
-            	data-separator-vertical="^\n>>>$">
-        			<script type="text/template">
-			      </script>
- 				</section>
+				<section data-markdown = "content.md"
+						data-separator="^\n---$"
+						data-separator-vertical="^\n>>>$">
+					<script type="text/template">
+					</script>
+				</section>
 				<!-- スライド部分終了 -->
 
 			</div>
@@ -45,11 +46,26 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+   				// math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					// config: 'TeX-AMS_HTML-full'
+				// },
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				//	{ src: 'plugin/notes/notes.js', async: true },
+					//{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					//{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					//{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					//{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					//{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					//{ src: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML', async: true }
 				]
 			});
 		</script>
