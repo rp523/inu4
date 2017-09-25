@@ -99,5 +99,8 @@ def pic11_5():
     ax.set_ylabel("z")
     plt.show()
 
+def pic11_6():
+    print(0.032 * 0.032 + 0.032 * 0.968 * 2)
+    
 if "__main__" == __name__:
-    pic11_5()
+    pic11_6()
