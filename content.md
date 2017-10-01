@@ -436,7 +436,7 @@ $\theta=99\%$のモデルは$\theta=1\%$のモデルより相対的に優れて�
 ========================================
 # <font color="Purple">結論</font>
 <br>
-### <font color="Purple">帰無仮説ではなく、</font>
+### <font color="Purple">"帰無"仮説ではなく、</font>
 ### <font color="Purple">帰するべき事前分布を設定しよう！</font>
 <br>
 ### 　　　　　　　　　　　　　　　　　　　　〜おわり〜
